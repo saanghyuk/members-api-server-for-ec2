@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
 
+const cors = require("cors");
 const fs = require("fs");
 
 app.use(express.json());
+app.use(cors());
 const members_json = fs.readFileSync("members.json", "utf8");
 let members = JSON.parse(members_json);
 
