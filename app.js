@@ -7,12 +7,13 @@ const fs = require("fs");
 app.use(express.json());
 app.use(cors());
 
-app.use(express.static("ab180_commerce"));
+// app.use(express.static("ab180_commerce"));
+
 const members_json = fs.readFileSync("members.json", "utf8");
 let members = JSON.parse(members_json);
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile(__dirname + "/main.html");
 });
 
 app.get("/api/members", (req, res) => {
